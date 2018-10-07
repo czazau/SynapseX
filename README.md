@@ -7,7 +7,7 @@
 **Only report issues that can be reproduced and clearly, evidently explained.** Occasional crashes related to the nature of the software that have no clear origin will be closed and ignored. Titles must be concise and provide a summary of the crash _(`"Help crash!!"` is not a good title, neither is `"Problem!"`. `"Crash when authenticating`" or `"Invalid argument Error while using syn.cache_invalidate"` are good example of titles.)_ We will also close all reports that provide no technical information. For your report to be accepted, you _must_ specify at minimum this information:
 
 - Your operating system (`Windows 10`, `Windows 8`, `Windows 7`, etc.).
-- Basic hardware in formation (such as your CPU, your GPU, your motherboard, etc.) If you don't know any of those elements, we recommend using the [free version of `Speccy`](https://www.ccleaner.com/speccy) to look up your computer specifications.
+- Basic hardware in formation (such as your CPU, your GPU, your motherboard, etc.) If you don't know any of those elements, we recommend using the [free version of `Speccy`](https://www.ccleaner.com/speccy) or [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to look up your computer specifications.
 - The script you ran that crashed the software (Upload it to [`paste.sh`](https://paste.sh) or [`hastebin`](https://hastebin.com)), if applicable. Please specify that the software crashed on its own if no script was ran.
 - The circumstances of the crash/bug/issue (for example, if the game crashes uniquely when accessing a specific component/API/feature of the software then you must name this component).
 - A link to the game you ran the software on. The game must be freely accessible.

@@ -19,6 +19,16 @@ If you are a software developer/reverse engineer and you're capable of producing
 
 **We consider security vulnerabilities to be a critical matter,** and we will **reward** those that report them to us in cash prizes and other goodies. If you find a potentially dangerous security vulnerability and you want to tell us then simply contact Louka at the e-mail address written on his [profile](https://github.com/LoukaMB) describing the issue. If further communication is needed from your part, it will be requested.
 
+Those are security vulnerabilities that warrants a reward:
+- Methods to use the software without owning a legitimate account
+- Methods to circumvent the software's security mechanisms (packing, obfuscation, detection, etc.)
+- Methods to infect a Software user via the usage of malicious Lua scripts
+- Anything related to unauthorized interaction with our online API
+
+Those are security vulnerabilities that, while important, are not critical enough to be considered rewardable:
+- Ways to detect the software from a script within a game
+- Modifying or intercepting Synapse web requests
+
 ## Other communications
 
 If you have anything else to transmit to us, then either personally contact one of our developers via the e-mails on their profiles or communicate with them on the various Synapse chatrooms.

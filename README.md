@@ -10,7 +10,6 @@
 - Basic hardware in formation (such as your CPU, your GPU, your motherboard, etc.) If you don't know any of those elements, we recommend using the [free version of `Speccy`](https://www.ccleaner.com/speccy) or [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to look up your computer specifications.
 - The script you ran that crashed the software (Upload it to [`paste.sh`](https://paste.sh) or [`hastebin`](https://hastebin.com)), if applicable. Please specify that the software crashed on its own if no script was ran.
 - The circumstances of the crash/bug/issue (for example, if the game crashes uniquely when accessing a specific component/API/feature of the software then you must name this component).
-- A link to the game you ran the software on. The game must be freely accessible.
 - Any additional information that you deem necessary and useful.
 
 If you are a software developer/reverse engineer and you're capable of producing a `.dmp` file for us to analyze, then please do so and attach the file to your issue. It will be greatly appreciated. Otherwise, we will try to do our best with the information specified within the issue.

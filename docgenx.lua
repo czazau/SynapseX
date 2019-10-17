@@ -4,26 +4,6 @@
 
 local docgen = {}
 
-docgen.header =
-[[
-<html>
-	<head>
-		<title>Synapse X - API Documentation</title>
-		<style>
-			%s
-		</style>
-	</head>
-	<body>
-		%s
-	</body>
-</html>
-]]
-
-docgen.entry =
-[[
-	
-]]
-
 function docgen.tree()
 	local tree = {}
 	tree.categories = {}
@@ -35,11 +15,12 @@ function docgen.category(tree, name)
 	return tree.categories[name]
 end
 
-function docgen.method(f_name, f_return, f_arguments)
+function docgen.method(f_return, f_name, f_arguments, f_description)
 	local method = {}
 	method.name = f_name
 	method.retn = f_return
 	method.args = f_arguments
+	method.desc = f_description
 	return method
 end
 
@@ -61,16 +42,10 @@ function docgen.build(tree)
 
 	for cname, cval in pairs(tree.categories) do
 		-- do something with categories. for now, not necessary
+		body = body .. "<h1 class=\"CategoryTitle\">" .. cname .. "</h1>"
 		for mname, mval in pairs(cval) do
 			local methodargs = ""
-			local bodyentry =
-[[
-<div>
-	<p class="CodeDefinition">
-		<span class="CodeTypename">%s</span> %s(%s)
-	</p>
-</div>
-]]
+			local bodyentry = docgen.entry
 			if mval.args:len() ~= 0 then -- build argument list
 				for argvt, argvn in mval.args:gmatch("([%w,<>]+) (%w+)") do
 					methodargs = methodargs .. ("<span class=\"CodeTypename\">%s</span> %s,"):format(argvt, argvn)
@@ -81,7 +56,7 @@ function docgen.build(tree)
 				methodargs = "<span class=\"CodeTypename\">void</span>"
 			end
 
-			bodyentry = bodyentry:format(mval.retn, mval.name, methodargs)
+			bodyentry = bodyentry:format(mval.name, mval.retn, '#' .. mval.name, mval.name, methodargs, mval.desc)
 			body = body .. bodyentry
 		end
 	end
@@ -90,17 +65,37 @@ function docgen.build(tree)
 	return document
 end
 
+function docgen.loadapidef(path)
+	local f = io.open(path, "r")
+	local a = f:read("*a")
+	local fn, err = loadstring(a)
+	if fn then
+		f:close()
+		return fn()
+	else
+		f:close()
+		error("shit happened, please fix")
+	end
+end
+
 function docgen.main(path)
 	assert(path, "path to api definition is missing")
-	local api = require(path)
+	local api = docgen.loadapidef(path)
 	local tree = docgen.tree()
 	for k1, v1 in pairs(api) do
-		local category = docgen.category(tree, k)
+		local category = docgen.category(tree, k1)
 		for k2, v2 in pairs(v1) do
-			local f_name, f_retn, f_args = v2[1], v2[2], v2[3]
-			docgen.entry(category, f_name, docgen.method(f_name, f_retn, f_args))
+			local f_retn, f_name, f_args, f_desc = v2[1], v2[2], v2[3], v2[4]
+			docgen.entry(category, f_name, docgen.method(f_retn, f_name, f_args, f_desc))
 		end
 	end
+
+	docgen.header = docgen.filestr("base_index.html")
+	docgen.entry = docgen.filestr("base_entry.html")
+	local document_string = docgen.build(tree)
+	local out = io.open("docs/index.html", "w")
+	out:write(document_string)
+	out:close()
 end
 
 return docgen.main(...)

@@ -2,20 +2,112 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
+:root
+{
+	/* define global colors, toy with this to rapidly theme */
+
+	/* general background color */
+	--BackgroundColor: rgb(18, 18, 18);
+
+	/* color used by most text */
+	--MainTextColor: rgb(200, 200, 200);
+
+	/* color used by category titles */
+	--CategoryTextColor: rgb(255, 255, 255);
+
+	/* color used by typenames */
+	--TypenameColor: rgb(0, 120, 180);
+
+	/* color used by signature background */
+	--SignatureBgColor: rgb(38, 38, 38);
+
+	/* color used by description background */
+	--DescriptionBgColor: rgb(26, 26, 26);
+
+}
+
+#PageHeader
+{
+	height: 50px;
+	background-color: rgba(26, 26, 26, 0.5);
+}
+
+#PageHeaderCenter
+{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#PageHeaderLogo
+{
+	max-height: 80%;
+}
+
+#PageHeaderTitle
+{
+	margin-left: 10px;
+	font-size: 24px;
+	font-family: 'Roboto Mono', monospace;
+	text-shadow: 2px 2px 2px black;
+	color: white;
+}
+
+#BodyContainer
+{
+	margin: 5% 15% 0 15%;
+}
+
+.CategoryTitle
+{
+	color: var(--CategoryTextColor);
+	margin-left: 25px;
+	font-weight: normal;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.CodeEntry
+{
+	border-radius: 10px 10px 10px 10px;
+	margin: 25px 25px 0 25px;
+	background-color: var(--SignatureBgColor);
+}
+
 .CodeDefinition
 {
-	padding: 50px;
-	background-color: rgba(0,0,0,.08);
+	border-radius: 10px 10px 0 0;
+	padding: 5px 5px 5px 5px;
+	background-color: var(--DescriptionBgColor);
 	font-family: 'Roboto Mono', monospace;
-	text-align: center;
 }
 
 .CodeTypename
 {
-	color: rgb(0, 100, 0);
+	color: var(--TypenameColor);
 }
 
 .CodeDescription
 {
+	font-size: 14px;
+	font-family: 'Roboto Mono', monospace;
+	padding: 0px 5px 5px 5px;
+}
 
+a
+{
+	color: var(--MainTextColor);
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+body
+{
+	margin: 0;
+	color: var(--MainTextColor);
+	background-color: var(--BackgroundColor);
 }

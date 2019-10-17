@@ -40,3 +40,7 @@ Those are security vulnerabilities that, while important, are not critical enoug
 ## Other communications
 
 If you have anything else to transmit to us, then either personally contact one of our developers via the e-mails on their profiles or communicate with them on the various Synapse chatrooms.
+
+### Documentation Generator
+
+Our documentation generator, including `docgenx.lua` and all associated resources are licensed under the [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html). Feel free to use it and modify it for your own projects.

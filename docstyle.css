@@ -1,0 +1,21 @@
+/* style for our documentation, written by Louka */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+.CodeDefinition
+{
+	padding: 50px;
+	background-color: rgba(0,0,0,.08);
+	font-family: 'Roboto Mono', monospace;
+	text-align: center;
+}
+
+.CodeTypename
+{
+	color: rgb(0, 100, 0);
+}
+
+.CodeDescription
+{
+
+}

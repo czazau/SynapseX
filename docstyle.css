@@ -12,6 +12,15 @@
 	/* color used by most text */
 	--MainTextColor: rgb(200, 200, 200);
 
+	/* color used by links */
+	--LinkColor: rgb(0, 255, 180);
+
+	/* color used by hovered links */
+	--HoverLinkColor: rgb(255, 255, 255);
+
+	/* color used by pressed links */
+	--PressLinkColor: rgb(180, 180, 180);
+
 	/* color used by category titles */
 	--CategoryTextColor: rgb(255, 255, 255);
 
@@ -23,6 +32,9 @@
 
 	/* color used by description background */
 	--DescriptionBgColor: rgb(26, 26, 26);
+
+	/* color used by example background */
+	--ExampleBgColor: var(--DescriptionBgColor);
 
 }
 
@@ -91,18 +103,44 @@
 {
 	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
-	padding: 0px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	margin: 0 0 0 5px;
 }
 
-a
+.CodeExample
+{
+	padding: 3% 3% 3% 3%;
+	font-family: 'Roboto Mono', monospace;
+	background-color: var(--ExampleBgColor);
+	border-radius: 0px 0px 10px 10px;
+}
+
+a.Anchor
 {
 	color: var(--MainTextColor);
 	text-decoration: none;
 }
 
-a:hover
+a.Anchor:hover
 {
 	text-decoration: underline;
+}
+
+a
+{
+	color: var(--LinkColor);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover
+{
+	color: var(--HoverLinkColor);
+}
+
+a:active
+{
+	color: var(--PressLinkColor);
 }
 
 body

@@ -15,10 +15,11 @@ function docgen.category(tree, name)
 	return tree.categories[name]
 end
 
-function docgen.method(f_return, f_name, f_arguments, f_description)
+function docgen.method(f_return, f_name, f_arguments, f_description, f_example)
 	local method = {}
 	method.name = f_name
 	method.retn = f_return
+	method.exam = f_example
 	method.args = f_arguments
 	method.desc = f_description
 	return method
@@ -56,7 +57,7 @@ function docgen.build(tree)
 				methodargs = "<span class=\"CodeTypename\">void</span>"
 			end
 
-			bodyentry = bodyentry:format(mval.name, mval.retn, '#' .. mval.name, mval.name, methodargs, mval.desc)
+			bodyentry = bodyentry:format(mval.name, mval.retn, '#' .. mval.name, mval.name, methodargs, mval.desc, mval.exam)
 			body = body .. bodyentry
 		end
 	end
@@ -85,8 +86,8 @@ function docgen.main(path)
 	for k1, v1 in pairs(api) do
 		local category = docgen.category(tree, k1)
 		for k2, v2 in pairs(v1) do
-			local f_retn, f_name, f_args, f_desc = v2[1], v2[2], v2[3], v2[4]
-			docgen.entry(category, f_name, docgen.method(f_retn, f_name, f_args, f_desc))
+			local f_retn, f_name, f_args, f_desc, f_ex = v2[1], v2[2], v2[3], v2[4], v2[5] or "No example provided"
+			docgen.entry(category, f_name, docgen.method(f_retn, f_name, f_args, f_desc, f_ex))
 		end
 	end
 

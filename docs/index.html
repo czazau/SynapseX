@@ -16,6 +16,15 @@
 	/* color used by most text */
 	--MainTextColor: rgb(200, 200, 200);
 
+	/* color used by links */
+	--LinkColor: rgb(0, 255, 180);
+
+	/* color used by hovered links */
+	--HoverLinkColor: rgb(255, 255, 255);
+
+	/* color used by pressed links */
+	--PressLinkColor: rgb(180, 180, 180);
+
 	/* color used by category titles */
 	--CategoryTextColor: rgb(255, 255, 255);
 
@@ -27,6 +36,9 @@
 
 	/* color used by description background */
 	--DescriptionBgColor: rgb(26, 26, 26);
+
+	/* color used by example background */
+	--ExampleBgColor: var(--DescriptionBgColor);
 
 }
 
@@ -95,18 +107,44 @@
 {
 	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
-	padding: 0px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	margin: 0 0 0 5px;
 }
 
-a
+.CodeExample
+{
+	padding: 3% 3% 3% 3%;
+	font-family: 'Roboto Mono', monospace;
+	background-color: var(--ExampleBgColor);
+	border-radius: 0px 0px 10px 10px;
+}
+
+a.Anchor
 {
 	color: var(--MainTextColor);
 	text-decoration: none;
 }
 
-a:hover
+a.Anchor:hover
 {
 	text-decoration: underline;
+}
+
+a
+{
+	color: var(--LinkColor);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover
+{
+	color: var(--HoverLinkColor);
+}
+
+a:active
+{
+	color: var(--PressLinkColor);
 }
 
 body
@@ -125,19 +163,135 @@ body
 			</div>
 		</div>
 		<div id="BodyContainer">
-			<h1 class="CategoryTitle">Clipboard Library</h1><div id="syn_clipboard_get" class="CodeEntry">
+			<h1 class="CategoryTitle">Environment Library</h1><div id="syn_getnilinstances" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a href="#syn_clipboard_get">syn_clipboard_get</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getnilinstances">syn_getnilinstances</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all instances parented to nil within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getreg" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getreg">syn_getreg</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns the Lua registry.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getgenv" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getgenv">syn_getgenv</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns the environment that will be applied to each script ran by Synapse.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getscripts" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getscripts">syn_getscripts</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all scripts within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getconnections" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getconnections">syn_getconnections</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all connections within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getrenv" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getrenv">syn_getrenv</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns the global Roblox environment for the LocalScript context.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getgc" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getgc">syn_getgc</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns the Lua GC list. This can very easily leak memory if not used correctly.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getinstances" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getinstances">syn_getinstances</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all instances within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getloadedmodules" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getloadedmodules">syn_getloadedmodules</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all ModuleScripts within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Clipboard Library</h1><div id="syn_clipboard_get" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_clipboard_get">syn_clipboard_get</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
 		Return the clipboard's content
 	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
 </div><div id="syn_clipboard_set" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a href="#syn_clipboard_set">syn_clipboard_set</a>(<span class="CodeTypename">string</span> Content)
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_clipboard_set">syn_clipboard_set</a>(<span class="CodeTypename">string</span> Content)
 	</p>
 	<p class="CodeDescription">
 		Set the system's clipboard to Content
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Keyboard/Mouse Library</h1><div id="syn_isactive" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_isactive">syn_isactive</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns true if the user is focused on the game window.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_keypress" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_keypress">syn_keypress</a>(<span class="CodeTypename">int</span> Keycode)
+	</p>
+	<p class="CodeDescription">
+		Simulates a keypress for the specified keycode. For more information, <a href="https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes" target="_blank">click here.</a>
+	</p>
+	<p class="CodeExample">
+		No example provided
 	</p>
 </div>
 		</div>

@@ -25,7 +25,10 @@
 	--CategoryTextColor: rgb(255, 255, 255);
 
 	/* color used by typenames */
-	--TypenameColor: rgb(0, 120, 180);
+	--TypenameColor: rgb(0, 140, 200);
+
+	/* color used by typename variants */
+	--TypenameVariantColor: rgb(180, 255, 180);
 
 	/* color used by signature background */
 	--SignatureBgColor: rgb(38, 38, 38);
@@ -99,10 +102,16 @@
 	color: var(--TypenameColor);
 }
 
+.CodeTypenameVariant
+{
+	color: var(--TypenameVariantColor);
+}
+
 .CodeDescription
 {
 	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
+	text-align: justify;
 	padding: 5px 5px 5px 5px;
 	margin: 0 0 0 5px;
 }
@@ -119,11 +128,6 @@ a.Anchor
 {
 	color: var(--MainTextColor);
 	text-decoration: none;
-}
-
-a.Anchor:hover
-{
-	text-decoration: underline;
 }
 
 a

@@ -36,6 +36,10 @@ function docgen.filestr(path)
 	return f_str
 end
 
+function docgen.typename(str)
+	return str:gsub("<", "<span class=\"CodeTypenameVariant\">&lt;"):gsub(">", "&gt;</span>")
+end
+
 function docgen.build(tree)
 	local document = docgen.header
 	local css = docgen.filestr("docstyle.css")
@@ -48,16 +52,17 @@ function docgen.build(tree)
 			local methodargs = ""
 			local bodyentry = docgen.entry
 			if mval.args:len() ~= 0 then -- build argument list
-				for argvt, argvn in mval.args:gmatch("([%w,<>]+) (%w+)") do
-					methodargs = methodargs .. ("<span class=\"CodeTypename\">%s</span> %s,"):format(argvt, argvn)
+				for argvt, argvn in mval.args:gmatch("([%w/<>]+) ([%w%.]+)") do
+					methodargs = methodargs .. ("<span class=\"CodeTypename\">%s</span> %s, ")
+					:format(docgen.typename(argvt), argvn)
 				end
-				methodargs = methodargs:gsub(",$", "") -- erase extra comma
+				methodargs = methodargs:gsub(",%s*$", "") -- erase extra comma
 			else
 				-- void argument list
 				methodargs = "<span class=\"CodeTypename\">void</span>"
 			end
 
-			bodyentry = bodyentry:format(mval.name, mval.retn, '#' .. mval.name, mval.name, methodargs, mval.desc, mval.exam)
+			bodyentry = bodyentry:format(mval.name, docgen.typename(mval.retn), '#' .. mval.name, mval.name, methodargs, mval.desc, mval.exam)
 			body = body .. bodyentry
 		end
 	end

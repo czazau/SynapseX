@@ -87,6 +87,14 @@
 	border-radius: 10px 10px 10px 10px;
 	margin: 25px 25px 0 25px;
 	background-color: var(--SignatureBgColor);
+	box-shadow: 0px 0px 5px #000000;
+	transition: box-shadow .2s, transform .2s;
+}
+
+.CodeEntry:hover
+{
+	box-shadow: 0px 0px 20px #000000;
+	transform: scale(1.05);
 }
 
 .CodeDefinition
@@ -152,4 +160,6 @@ body
 	margin: 0;
 	color: var(--MainTextColor);
 	background-color: var(--BackgroundColor);
+	background-image: url("Bg.png");
+	background-repeat: repeat;
 }

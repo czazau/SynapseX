@@ -19,6 +19,12 @@ return
 		{ "variant<LocalScript/ModuleScript/nil>", "syn_getcallingscript", "", "Returns the script calling the current function." };
 	};
 
+	["Context Library"] =
+	{
+		{ "void", "syn_context_set", "int Context", "Sets the current thread context to Context." };
+		{ "int", "syn_context_get", "", "Returns the current thread context as an integer." };
+	};
+
 	["Table Extensions"] =
 	{
 		{ "variant<table/nil>", "getrawmetatable", "variant<table/userdata> Value", "Retrieves the metatable of value if it exists, or return nil." };
@@ -70,5 +76,15 @@ return
 		{ "void", "syn_obj_override", "object Object, string PropertyName, any Value", "Overrides field PropertyName in Object to Value and prevents its replication." };
 		{ "table", "syn_obj_specialinfo", "object Object", "Returns a list of special properties for certain instances, such as MeshParts, UnionOperations or Terrain." };
 		{ "void", "syn_obj_save", "table Flags", "Saves the current game to your workspace folder. Flags is a table containing two fields: noscripts, a boolean specifying whether scripts are to be decompiled automatically, and mode, which is a string that sets the serialization mode." };
+		{ "object<WebSocket>", "syn_net_websocket", "string Name", "Opens the Synapse Websocket with channel Name. This function will be absent if WebSocket support is disabled in theme.json" };
+	};
+
+	["Encryption Library"] =
+	{
+		{ "string", "syn_crypt_encrypt", "string Data, string Key", "Encrypts Data with Key and returns it." };
+		{ "string", "syn_crypt_decrypt", "string Data, string Key", "Decrypts Data with Key and returns it." };
+		{ "string", "syn_crypt_b64_encode", "string Data", "Encodes Data in base64." };
+		{ "string", "syn_crypt_b64_decode", "string Data", "Decodes Data from base64." };
+		{ "string", "syn_crypt_hash", "string Data", "Returns Data's hash." }; 
 	};
 }

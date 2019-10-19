@@ -167,7 +167,147 @@ body
 			</div>
 		</div>
 		<div id="BodyContainer">
-			<h1 class="CategoryTitle">IO Library</h1><div id="syn_io_write" class="CodeEntry">
+			<h1 class="CategoryTitle">Clipboard Library</h1><div id="syn_clipboard_get" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_clipboard_get">syn_clipboard_get</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Return the clipboard's content
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_clipboard_set" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_clipboard_set">syn_clipboard_set</a>(<span class="CodeTypename">string</span> Content)
+	</p>
+	<p class="CodeDescription">
+		Set the system's clipboard to Content
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Reflection and Engine Library</h1><div id="syn_net_websocket" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;WebSocket&gt;</span></span> <a class="Anchor" href="#syn_net_websocket">syn_net_websocket</a>(<span class="CodeTypename">string</span> Name)
+	</p>
+	<p class="CodeDescription">
+		Opens the Synapse Websocket with channel Name. This function will be absent if WebSocket support is disabled in theme.json
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_checkcaller" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_checkcaller">syn_checkcaller</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns true if the current thread is owned by Synapse X. 
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_obj_override" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_obj_override">syn_obj_override</a>(<span class="CodeTypename">object</span> Object, <span class="CodeTypename">string</span> PropertyName, <span class="CodeTypename">any</span> Value)
+	</p>
+	<p class="CodeDescription">
+		Overrides field PropertyName in Object to Value and prevents its replication.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_dumpstring" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_dumpstring">syn_dumpstring</a>(<span class="CodeTypename">string</span> Script)
+	</p>
+	<p class="CodeDescription">
+		Dumps the bytecode for the Script chunk.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_decompile" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_decompile">syn_decompile</a>(<span class="CodeTypename">ModuleScript&gt;</span></span> Script, <span class="CodeTypename">bool</span> Bytecode)
+	</p>
+	<p class="CodeDescription">
+		Decompiles Script and returns the decompiled script, or its bytecode if Bytecode is true.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_obj_save" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_obj_save">syn_obj_save</a>(<span class="CodeTypename">table</span> Flags)
+	</p>
+	<p class="CodeDescription">
+		Saves the current game to your workspace folder. Flags is a table containing two fields: noscripts, a boolean specifying whether scripts are to be decompiled automatically, and mode, which is a string that sets the serialization mode.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_obj_specialinfo" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_obj_specialinfo">syn_obj_specialinfo</a>(<span class="CodeTypename">object</span> Object)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of special properties for certain instances, such as MeshParts, UnionOperations or Terrain.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_islclosure" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_islclosure">syn_islclosure</a>(<span class="CodeTypename">function</span> Fn)
+	</p>
+	<p class="CodeDescription">
+		Returns true if Fn is a Lua function.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Table Extensions</h1><div id="getrawmetatable" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/nil&gt;</span></span> <a class="Anchor" href="#getrawmetatable">getrawmetatable</a>(<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/userdata&gt;</span></span> Value)
+	</p>
+	<p class="CodeDescription">
+		Retrieves the metatable of value if it exists, or return nil.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="table.lock" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#table.lock">table.lock</a>(<span class="CodeTypename">table</span> T)
+	</p>
+	<p class="CodeDescription">
+		Locks T, preventing modifications.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="table.islock" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#table.islock">table.islock</a>(<span class="CodeTypename">table</span> T)
+	</p>
+	<p class="CodeDescription">
+		Returns true or false depending if T is locked or not.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="table.unlock" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#table.unlock">table.unlock</a>(<span class="CodeTypename">table</span> T)
+	</p>
+	<p class="CodeDescription">
+		Unlocks T, allowing modifications.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">IO Library</h1><div id="syn_io_write" class="CodeEntry">
 	<p class="CodeDefinition">
 		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_write">syn_io_write</a>(<span class="CodeTypename">string</span> Filepath, <span class="CodeTypename">string</span> Data)
 	</p>
@@ -197,132 +337,72 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Environment Library</h1><div id="syn_getnilinstances" class="CodeEntry">
+</div><h1 class="CategoryTitle">Hooking Library</h1><div id="syn_newcclosure" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getnilinstances">syn_getnilinstances</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_newcclosure">syn_newcclosure</a>(<span class="CodeTypename">function</span> Fn)
 	</p>
 	<p class="CodeDescription">
-		Returns a list of all instances parented to nil within the game.
+		Pushes a CClosure that invokes Fn. Used for metatable hooks.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getgc" class="CodeEntry">
+</div><div id="syn_hookfunction" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getgc">syn_getgc</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_hookfunction">syn_hookfunction</a>(<span class="CodeTypename">function</span> Target, <span class="CodeTypename">function</span> Hook)
 	</p>
 	<p class="CodeDescription">
-		Returns the Lua GC list. This can very easily leak memory if not used correctly.
+		Hooks Target and replaces it with Hook. Returns the unhooked function.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getcallingscript" class="CodeEntry">
+</div><h1 class="CategoryTitle">Encryption Library</h1><div id="syn_crypt_encrypt" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;LocalScript/ModuleScript/nil&gt;</span></span> <a class="Anchor" href="#syn_getcallingscript">syn_getcallingscript</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_encrypt">syn_crypt_encrypt</a>(<span class="CodeTypename">string</span> Data, <span class="CodeTypename">string</span> Key)
 	</p>
 	<p class="CodeDescription">
-		Returns the script calling the current function.
+		Encrypts Data with Key and returns it.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getgenv" class="CodeEntry">
+</div><div id="syn_crypt_b64_decode" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getgenv">syn_getgenv</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_b64_decode">syn_crypt_b64_decode</a>(<span class="CodeTypename">string</span> Data)
 	</p>
 	<p class="CodeDescription">
-		Returns the environment that will be applied to each script ran by Synapse.
+		Decodes Data from base64.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getsenv" class="CodeEntry">
+</div><div id="syn_crypt_decrypt" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/nil&gt;</span></span> <a class="Anchor" href="#syn_getsenv">syn_getsenv</a>(<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;LocalScript/ModuleScript&gt;</span></span> Script)
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_decrypt">syn_crypt_decrypt</a>(<span class="CodeTypename">string</span> Data, <span class="CodeTypename">string</span> Key)
 	</p>
 	<p class="CodeDescription">
-		Returns Script's environments. Returns nil if Script isn't running.
+		Decrypts Data with Key and returns it.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getscripts" class="CodeEntry">
+</div><div id="syn_crypt_hash" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getscripts">syn_getscripts</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_hash">syn_crypt_hash</a>(<span class="CodeTypename">string</span> Data)
 	</p>
 	<p class="CodeDescription">
-		Returns a list of all scripts within the game.
+		Returns Data's hash.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getconnections" class="CodeEntry">
+</div><div id="syn_crypt_b64_encode" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getconnections">syn_getconnections</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_b64_encode">syn_crypt_b64_encode</a>(<span class="CodeTypename">string</span> Data)
 	</p>
 	<p class="CodeDescription">
-		Returns a list of all connections within the game.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getrenv" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getrenv">syn_getrenv</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns the global Roblox environment for the LocalScript context.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getloadedmodules" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getloadedmodules">syn_getloadedmodules</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns a list of all ModuleScripts within the game.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getinstances" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getinstances">syn_getinstances</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns a list of all instances within the game.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getreg" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getreg">syn_getreg</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns the Lua registry.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><h1 class="CategoryTitle">Clipboard Library</h1><div id="syn_clipboard_get" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_clipboard_get">syn_clipboard_get</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Return the clipboard's content
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_clipboard_set" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_clipboard_set">syn_clipboard_set</a>(<span class="CodeTypename">string</span> Content)
-	</p>
-	<p class="CodeDescription">
-		Set the system's clipboard to Content
+		Encodes Data in base64.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -437,132 +517,132 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Reflection and Engine Library</h1><div id="syn_checkcaller" class="CodeEntry">
+</div><h1 class="CategoryTitle">Environment Library</h1><div id="syn_getnilinstances" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_checkcaller">syn_checkcaller</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getnilinstances">syn_getnilinstances</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Returns true if the current thread is owned by Synapse X. 
+		Returns a list of all instances parented to nil within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_obj_override" class="CodeEntry">
+</div><div id="syn_getgc" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_obj_override">syn_obj_override</a>(<span class="CodeTypename">object</span> Object, <span class="CodeTypename">string</span> PropertyName, <span class="CodeTypename">any</span> Value)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getgc">syn_getgc</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Overrides field PropertyName in Object to Value and prevents its replication.
+		Returns the Lua GC list. This can very easily leak memory if not used correctly.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_dumpstring" class="CodeEntry">
+</div><div id="syn_getcallingscript" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_dumpstring">syn_dumpstring</a>(<span class="CodeTypename">string</span> Script)
+		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;LocalScript/ModuleScript/nil&gt;</span></span> <a class="Anchor" href="#syn_getcallingscript">syn_getcallingscript</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Dumps the bytecode for the Script chunk.
+		Returns the script calling the current function.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_decompile" class="CodeEntry">
+</div><div id="syn_getgenv" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_decompile">syn_decompile</a>(<span class="CodeTypename">ModuleScript&gt;</span></span> Script, <span class="CodeTypename">bool</span> Bytecode)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getgenv">syn_getgenv</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Decompiles Script and returns the decompiled script, or its bytecode if Bytecode is true.
+		Returns the environment that will be applied to each script ran by Synapse.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_obj_save" class="CodeEntry">
+</div><div id="syn_getsenv" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_obj_save">syn_obj_save</a>(<span class="CodeTypename">table</span> Flags)
+		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/nil&gt;</span></span> <a class="Anchor" href="#syn_getsenv">syn_getsenv</a>(<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;LocalScript/ModuleScript&gt;</span></span> Script)
 	</p>
 	<p class="CodeDescription">
-		Saves the current game to your workspace folder. Flags is a table containing two fields: noscripts, a boolean specifying whether scripts are to be decompiled automatically, and mode, which is a string that sets the serialization mode.
+		Returns Script's environments. Returns nil if Script isn't running.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_obj_specialinfo" class="CodeEntry">
+</div><div id="syn_getscripts" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_obj_specialinfo">syn_obj_specialinfo</a>(<span class="CodeTypename">object</span> Object)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getscripts">syn_getscripts</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Returns a list of special properties for certain instances, such as MeshParts, UnionOperations or Terrain.
+		Returns a list of all scripts within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_islclosure" class="CodeEntry">
+</div><div id="syn_getconnections" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_islclosure">syn_islclosure</a>(<span class="CodeTypename">function</span> Fn)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getconnections">syn_getconnections</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Returns true if Fn is a Lua function.
+		Returns a list of all connections within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Hooking Library</h1><div id="syn_newcclosure" class="CodeEntry">
+</div><div id="syn_getrenv" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_newcclosure">syn_newcclosure</a>(<span class="CodeTypename">function</span> Fn)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getrenv">syn_getrenv</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Pushes a CClosure that invokes Fn. Used for metatable hooks.
+		Returns the global Roblox environment for the LocalScript context.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_hookfunction" class="CodeEntry">
+</div><div id="syn_getloadedmodules" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_hookfunction">syn_hookfunction</a>(<span class="CodeTypename">function</span> Target, <span class="CodeTypename">function</span> Hook)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getloadedmodules">syn_getloadedmodules</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Hooks Target and replaces it with Hook. Returns the unhooked function.
+		Returns a list of all ModuleScripts within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Table Extensions</h1><div id="getrawmetatable" class="CodeEntry">
+</div><div id="syn_getinstances" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/nil&gt;</span></span> <a class="Anchor" href="#getrawmetatable">getrawmetatable</a>(<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/userdata&gt;</span></span> Value)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getinstances">syn_getinstances</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Retrieves the metatable of value if it exists, or return nil.
+		Returns a list of all instances within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="table.lock" class="CodeEntry">
+</div><div id="syn_getreg" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#table.lock">table.lock</a>(<span class="CodeTypename">table</span> T)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getreg">syn_getreg</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Locks T, preventing modifications.
+		Returns the Lua registry.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="table.islock" class="CodeEntry">
+</div><h1 class="CategoryTitle">Context Library</h1><div id="syn_context_get" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">bool</span> <a class="Anchor" href="#table.islock">table.islock</a>(<span class="CodeTypename">table</span> T)
+		<span class="CodeTypename">int</span> <a class="Anchor" href="#syn_context_get">syn_context_get</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Returns true or false depending if T is locked or not.
+		Returns the current thread context as an integer.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="table.unlock" class="CodeEntry">
+</div><div id="syn_context_set" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#table.unlock">table.unlock</a>(<span class="CodeTypename">table</span> T)
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_context_set">syn_context_set</a>(<span class="CodeTypename">int</span> Context)
 	</p>
 	<p class="CodeDescription">
-		Unlocks T, allowing modifications.
+		Sets the current thread context to Context.
 	</p>
 	<p class="CodeExample">
 		No example provided

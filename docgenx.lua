@@ -80,7 +80,7 @@ function docgen.loadapidef(path)
 		return fn()
 	else
 		f:close()
-		error("shit happened, please fix")
+		error("shit happened, please fix: " .. err)
 	end
 end
 

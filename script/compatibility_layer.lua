@@ -1,6 +1,6 @@
 -- Synapse X-Sanctioned Development Compatibility Layer (DCL)
 -- https://github.com/LoukaMB/SynapseX/script/compatibility_layer.lua
--- Usage: loadstring(game:HttpGet("https://github.com/LoukaMB/SynapseX/script/compatibility_layer.lua"))()
+-- Usage: loadstring(game:HttpGet("https://raw.githubusercontent.com/LoukaMB/SynapseX/master/script/compatibility_layer.lua"))()
 
 -- This script provides a standardized API for Lua scripts with environment extensions.
 -- Definitions are written in corcondance with https://loukamb.github.io/SynapseX/

@@ -219,8 +219,11 @@ return function()
 			api.context_set = unsupported("context_set", flags.software)
 		elseif flags.software == "ely" then
 			api.context_get = unsupported("context_get", flags.software)
-			api.context_set = unsupported("contest_set", flags.software)
-
+			api.context_set = unsupported("context_set", flags.software)
+		elseif flags.software == "cl" then
+			api.context_get = getcontext
+			api.context_set = setcontext
+		end
 	end
 
 	return api

@@ -9,6 +9,10 @@
 
 **This repository offers source code and documentation for Synapse X-related facilities, APIs and endorsed scripts/libraries,** excluding the Synapse X interface which is available in this [separate repository](https://github.com/syngp/xui). Pull requests are welcomed but rarely accepted. **This repository also serves as the principal bug tracker for Synapse X.**
 
+## Development Compatibility Layer
+
+The **Development Compatibility Layer** (DCL) is a Lua script providing a unified API that should be compatible between many similar softwares. It is developed by Synapse G.P. but, just like anything in this repository excluding image files, offered completely free of charge under the <b>AGPLv3</b>. The DCL's documentation is synonymous with Synapse X's documentation (as the DCL is based on Synapse X), meaning any Synapse X documentation provides DCL's entire API. [You can view the API documentation here](https://loukamb.github.io/SynapseX). Bear in mind that the DCL is accessed via `api.`, not `syn_`.
+
 ## Reporting Issues
 
 **Only report issues that can be reproduced and clearly, evidently explained.** Occasional crashes related to the nature of the software that have no clear origin will be closed and ignored. Titles must be concise and provide a summary of the crash _(`"Help crash!!"` is not a good title, neither is `"Problem!"`. `"Crash when authenticating`" or `"Invalid argument Error while using syn.cache_invalidate"` are good example of titles.)_ We will also close all reports that provide no technical information. For your report to be accepted, you _must_ specify at minimum this information:

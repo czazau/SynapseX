@@ -17,11 +17,12 @@ end
 
 function docgen.method(f_return, f_name, f_arguments, f_description, f_example)
 	local method = {}
-	method.name = f_name
 	method.retn = f_return
 	method.exam = f_example
 	method.args = f_arguments
 	method.desc = f_description
+	method.name = f_name:gsub("%*prp%s*", "")
+	method.proprietary = f_name:find("%*prp") and true
 	return method
 end
 
@@ -40,7 +41,7 @@ function docgen.typename(str)
 	return str:gsub("<", "<span class=\"CodeTypenameVariant\">&lt;"):gsub(">", "&gt;</span>")
 end
 
-function docgen.build(tree)
+function docgen.build(tree, prefix)
 	local document = docgen.header
 	local css = docgen.filestr("docstyle.css")
 	local body = ""
@@ -61,9 +62,13 @@ function docgen.build(tree)
 				-- void argument list
 				methodargs = "<span class=\"CodeTypename\">void</span>"
 			end
-
-			bodyentry = bodyentry:format(mval.name, docgen.typename(mval.retn), '#' .. mval.name, mval.name, methodargs, mval.desc, mval.exam)
-			body = body .. bodyentry
+			if mval.proprietary then
+				bodyentry = bodyentry:format(mval.name:gsub("%*_", prefix), "CodeDefinitionProprietary", docgen.typename(mval.retn), '#' .. mval.name:gsub("%*_", prefix), mval.name:gsub("%*_", prefix), methodargs, mval.desc:gsub("%*_", prefix), mval.exam)
+				body = body .. bodyentry
+			else
+				bodyentry = bodyentry:format(mval.name:gsub("%*_", prefix), "CodeDefinition", docgen.typename(mval.retn), '#' .. mval.name:gsub("%*_", prefix), mval.name:gsub("%*_", prefix), methodargs, mval.desc:gsub("%*_", prefix), mval.exam)
+				body = body .. bodyentry
+			end
 		end
 	end
 
@@ -84,8 +89,9 @@ function docgen.loadapidef(path)
 	end
 end
 
-function docgen.main(path)
+function docgen.main(path, prefix)
 	assert(path, "path to api definition is missing")
+	local prefix = prefix or "api."
 	local api = docgen.loadapidef(path)
 	local tree = docgen.tree()
 	for k1, v1 in pairs(api) do
@@ -98,7 +104,7 @@ function docgen.main(path)
 
 	docgen.header = docgen.filestr("base_index.html")
 	docgen.entry = docgen.filestr("base_entry.html")
-	local document_string = docgen.build(tree)
+	local document_string = docgen.build(tree, prefix)
 	local out = io.open("docs/index.html", "w")
 	out:write(document_string)
 	out:close()

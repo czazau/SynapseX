@@ -13,6 +13,9 @@
 	/* general background color */
 	--BackgroundColor: rgb(18, 18, 18);
 
+	/* proprietary background color */
+	--ProprietaryBgColor: rgb(26, 0, 28);
+
 	/* color used by most text */
 	--MainTextColor: rgb(200, 200, 200);
 
@@ -109,6 +112,20 @@
 	font-family: 'Roboto Mono', monospace;
 }
 
+.CodeDefinitionProprietary
+{
+	border-radius: 10px 10px 0 0;
+	padding: 5px 5px 5px 5px;
+	background-color: var(--ProprietaryBgColor);
+	font-family: 'Roboto Mono', monospace;
+}
+
+.ProprietaryNotice
+{
+	position: absolute;
+	right: 20px;
+}
+
 .CodeTypename
 {
 	color: var(--TypenameColor);
@@ -159,6 +176,13 @@ a:active
 	color: var(--PressLinkColor);
 }
 
+h3
+{
+	text-align: center;
+	font-weight: normal;
+	font-family: 'Roboto Mono', monospace;
+}
+
 body
 {
 	margin: 0;
@@ -177,6 +201,7 @@ body
 			</div>
 		</div>
 		<div id="BodyContainer">
+			<h3>Definitions with a violet background are proprietary extensions, which are exclusive to <b>Synapse X</b>. Otherwise, definitions without a colored background are from the <a href="https://github.com/LoukaMB/SynapseX/blob/master/script/compatibility_layer.lua" target="_blank">DCL standard</a>.</h3>
 			<h1 class="CategoryTitle">Clipboard Library</h1><div id="syn_clipboard_get" class="CodeEntry">
 	<p class="CodeDefinition">
 		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_clipboard_get">syn_clipboard_get</a>(<span class="CodeTypename">void</span>)
@@ -198,7 +223,7 @@ body
 		No example provided
 	</p>
 </div><h1 class="CategoryTitle">Reflection and Engine Library</h1><div id="syn_net_websocket" class="CodeEntry">
-	<p class="CodeDefinition">
+	<p class="CodeDefinitionProprietary">
 		<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;WebSocket&gt;</span></span> <a class="Anchor" href="#syn_net_websocket">syn_net_websocket</a>(<span class="CodeTypename">string</span> Name)
 	</p>
 	<p class="CodeDescription">
@@ -207,42 +232,12 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_checkcaller" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_checkcaller">syn_checkcaller</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns true if the current thread is owned by Synapse X. 
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_obj_override" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_obj_override">syn_obj_override</a>(<span class="CodeTypename">object</span> Object, <span class="CodeTypename">string</span> PropertyName, <span class="CodeTypename">any</span> Value)
-	</p>
-	<p class="CodeDescription">
-		Overrides field PropertyName in Object to Value and prevents its replication.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
 </div><div id="syn_dumpstring" class="CodeEntry">
-	<p class="CodeDefinition">
+	<p class="CodeDefinitionProprietary">
 		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_dumpstring">syn_dumpstring</a>(<span class="CodeTypename">string</span> Script)
 	</p>
 	<p class="CodeDescription">
 		Dumps the bytecode for the Script chunk.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_decompile" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_decompile">syn_decompile</a>(<span class="CodeTypename">ModuleScript&gt;</span></span> Script, <span class="CodeTypename">bool</span> Bytecode)
-	</p>
-	<p class="CodeDescription">
-		Decompiles Script and returns the decompiled script, or its bytecode if Bytecode is true.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -257,12 +252,32 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
+</div><div id="syn_obj_override" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_obj_override">syn_obj_override</a>(<span class="CodeTypename">object</span> Object, <span class="CodeTypename">string</span> PropertyName, <span class="CodeTypename">any</span> Value)
+	</p>
+	<p class="CodeDescription">
+		Overrides field PropertyName in Object to Value and prevents its replication.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
 </div><div id="syn_obj_specialinfo" class="CodeEntry">
-	<p class="CodeDefinition">
+	<p class="CodeDefinitionProprietary">
 		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_obj_specialinfo">syn_obj_specialinfo</a>(<span class="CodeTypename">object</span> Object)
 	</p>
 	<p class="CodeDescription">
 		Returns a list of special properties for certain instances, such as MeshParts, UnionOperations or Terrain.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_decompile" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_decompile">syn_decompile</a>(<span class="CodeTypename">ModuleScript&gt;</span></span> Script, <span class="CodeTypename">bool</span> Bytecode)
+	</p>
+	<p class="CodeDescription">
+		Decompiles Script and returns the decompiled script, or its bytecode if Bytecode is true.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -273,6 +288,86 @@ body
 	</p>
 	<p class="CodeDescription">
 		Returns true if Fn is a Lua function.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_checkcaller" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_checkcaller">syn_checkcaller</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns true if the current thread is owned by Synapse X. 
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Console Library</h1><div id="syn_console_iprint" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_console_iprint">syn_console_iprint</a>(<span class="CodeTypename">string</span> Arg)
+	</p>
+	<p class="CodeDescription">
+		Akin to syn_console_print but prefixes Arg with [INFO]. Mainly used by internal scripts for debugging purposes.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_console_print" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_console_print">syn_console_print</a>(<span class="CodeTypename">string</span> Arg)
+	</p>
+	<p class="CodeDescription">
+		Prints Arg to the allocated console.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_console_name" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_console_name">syn_console_name</a>(<span class="CodeTypename">string</span> Name)
+	</p>
+	<p class="CodeDescription">
+		Set the currently allocated console's title to Name.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_console_input" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_console_input">syn_console_input</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Yields the Engine and returns the user's input.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_console_eprint" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_console_eprint">syn_console_eprint</a>(<span class="CodeTypename">string</span> Arg)
+	</p>
+	<p class="CodeDescription">
+		Akin to syn_console_print but prefixes Arg with [ERR]. Mainly used by internal scripts for debugging purposes.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_console_wprint" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_console_wprint">syn_console_wprint</a>(<span class="CodeTypename">string</span> Arg)
+	</p>
+	<p class="CodeDescription">
+		Akin to syn_console_print but prefixes Arg with [WARN]. Mainly used by internal scripts for debugging purposes.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_console_input_async" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_console_input_async">syn_console_input_async</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Yields the current thread and returns the user's input.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -317,22 +412,12 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">IO Library</h1><div id="syn_io_write" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_write">syn_io_write</a>(<span class="CodeTypename">string</span> Filepath, <span class="CodeTypename">string</span> Data)
+</div><h1 class="CategoryTitle">IO Library</h1><div id="syn_io_isfile" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_io_isfile">syn_io_isfile</a>(<span class="CodeTypename">string</span> Filepath)
 	</p>
 	<p class="CodeDescription">
-		Writes Data at Filepath and creates the file if it doesn't exist.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_io_append" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_append">syn_io_append</a>(<span class="CodeTypename">string</span> Filepath, <span class="CodeTypename">string</span> Data)
-	</p>
-	<p class="CodeDescription">
-		Appends Data to the file located at Filepath.
+		Returns whether the file at Filepath is a file.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -347,192 +432,72 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Hooking Library</h1><div id="syn_newcclosure" class="CodeEntry">
+</div><div id="syn_io_listdir" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_newcclosure">syn_newcclosure</a>(<span class="CodeTypename">function</span> Fn)
+		<span class="CodeTypename">table<span class="CodeTypenameVariant"&gt;</span>&lt;string&gt;</span></span> <a class="Anchor" href="#syn_io_listdir">syn_io_listdir</a>(<span class="CodeTypename">string</span> Filedir)
 	</p>
 	<p class="CodeDescription">
-		Pushes a CClosure that invokes Fn. Used for metatable hooks.
+		Returns a table containing a directory's files.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_hookfunction" class="CodeEntry">
+</div><div id="syn_io_write" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_hookfunction">syn_hookfunction</a>(<span class="CodeTypename">function</span> Target, <span class="CodeTypename">function</span> Hook)
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_write">syn_io_write</a>(<span class="CodeTypename">string</span> Filepath, <span class="CodeTypename">string</span> Data)
 	</p>
 	<p class="CodeDescription">
-		Hooks Target and replaces it with Hook. Returns the unhooked function.
+		Writes Data at Filepath and creates the file if it doesn't exist.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Encryption Library</h1><div id="syn_crypt_encrypt" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_encrypt">syn_crypt_encrypt</a>(<span class="CodeTypename">string</span> Data, <span class="CodeTypename">string</span> Key)
+</div><div id="syn_io_delfile" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_delfile">syn_io_delfile</a>(<span class="CodeTypename">string</span> Filepath)
 	</p>
 	<p class="CodeDescription">
-		Encrypts Data with Key and returns it.
+		Deletes the file at Filepath.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_crypt_b64_decode" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_b64_decode">syn_crypt_b64_decode</a>(<span class="CodeTypename">string</span> Data)
+</div><div id="syn_io_delfolder" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_delfolder">syn_io_delfolder</a>(<span class="CodeTypename">string</span> Filepath)
 	</p>
 	<p class="CodeDescription">
-		Decodes Data from base64.
+		Deletes the directory at Filepath.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_crypt_decrypt" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_decrypt">syn_crypt_decrypt</a>(<span class="CodeTypename">string</span> Data, <span class="CodeTypename">string</span> Key)
+</div><div id="syn_io_isfolder" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_io_isfolder">syn_io_isfolder</a>(<span class="CodeTypename">string</span> Filepath)
 	</p>
 	<p class="CodeDescription">
-		Decrypts Data with Key and returns it.
+		Returns whether the file at Filepath is a directory.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_crypt_hash" class="CodeEntry">
+</div><div id="syn_io_append" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_hash">syn_crypt_hash</a>(<span class="CodeTypename">string</span> Data)
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_io_append">syn_io_append</a>(<span class="CodeTypename">string</span> Filepath, <span class="CodeTypename">string</span> Data)
 	</p>
 	<p class="CodeDescription">
-		Returns Data's hash.
+		Appends Data to the file located at Filepath.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_crypt_b64_encode" class="CodeEntry">
+</div><h1 class="CategoryTitle">Environment Library</h1><div id="syn_getloadedmodules" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_b64_encode">syn_crypt_b64_encode</a>(<span class="CodeTypename">string</span> Data)
+		<span class="CodeTypename">table<span class="CodeTypenameVariant"&gt;</span>&lt;ModuleScript&gt;</span></span> <a class="Anchor" href="#syn_getloadedmodules">syn_getloadedmodules</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Encodes Data in base64.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><h1 class="CategoryTitle">Keyboard/Mouse Library</h1><div id="syn_mouse2press" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse2press">syn_mouse2press</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Simulates a right mouse button press.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mouse2click" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse2click">syn_mouse2click</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Simulates a full right mouse button press and release.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_keypress" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_keypress">syn_keypress</a>(<span class="CodeTypename">int</span> Keycode)
-	</p>
-	<p class="CodeDescription">
-		Simulates a keypress for the specified keycode. For more information, <a href="https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes" target="_blank">click here.</a>
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_isactive" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_isactive">syn_isactive</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns true if the user is focused on the game window.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mousemoverel" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mousemoverel">syn_mousemoverel</a>(<span class="CodeTypename">int</span> X, <span class="CodeTypename">int</span> Y)
-	</p>
-	<p class="CodeDescription">
-		Moves the mouse cursor relatively by the specified coordinates.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mousescroll" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mousescroll">syn_mousescroll</a>(<span class="CodeTypename">int</span> Pixels)
-	</p>
-	<p class="CodeDescription">
-		Scrolls the mouse wheel virtually by Pixels pixels.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mouse1release" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse1release">syn_mouse1release</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Simulates a left mouse button release.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mouse1press" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse1press">syn_mouse1press</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Simulates a left mouse button press.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mouse2release" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse2release">syn_mouse2release</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Simulates a right mouse button release.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_keyrelease" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_keyrelease">syn_keyrelease</a>(<span class="CodeTypename">int</span> Keycode)
-	</p>
-	<p class="CodeDescription">
-		Simulates a key release for the specified keycode.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_mouse1click" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse1click">syn_mouse1click</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Simulates a full left mouse button press and release.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><h1 class="CategoryTitle">Environment Library</h1><div id="syn_getnilinstances" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getnilinstances">syn_getnilinstances</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns a list of all instances parented to nil within the game.
+		Returns a list of all ModuleScripts within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -543,6 +508,26 @@ body
 	</p>
 	<p class="CodeDescription">
 		Returns the Lua GC list. This can very easily leak memory if not used correctly.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getsenv" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/nil&gt;</span></span> <a class="Anchor" href="#syn_getsenv">syn_getsenv</a>(<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;LocalScript/ModuleScript&gt;</span></span> Script)
+	</p>
+	<p class="CodeDescription">
+		Returns Script's environments. Returns nil if Script isn't running.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getscripts" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table<span class="CodeTypenameVariant"&gt;</span>&lt;BaseScript&gt;</span></span> <a class="Anchor" href="#syn_getscripts">syn_getscripts</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all scripts within the game.
 	</p>
 	<p class="CodeExample">
 		No example provided
@@ -567,59 +552,9 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_getsenv" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">variant<span class="CodeTypenameVariant"&gt;</span>&lt;table/nil&gt;</span></span> <a class="Anchor" href="#syn_getsenv">syn_getsenv</a>(<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;LocalScript/ModuleScript&gt;</span></span> Script)
-	</p>
-	<p class="CodeDescription">
-		Returns Script's environments. Returns nil if Script isn't running.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getscripts" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getscripts">syn_getscripts</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns a list of all scripts within the game.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getconnections" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getconnections">syn_getconnections</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns a list of all connections within the game.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getrenv" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getrenv">syn_getrenv</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns the global Roblox environment for the LocalScript context.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
-</div><div id="syn_getloadedmodules" class="CodeEntry">
-	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getloadedmodules">syn_getloadedmodules</a>(<span class="CodeTypename">void</span>)
-	</p>
-	<p class="CodeDescription">
-		Returns a list of all ModuleScripts within the game.
-	</p>
-	<p class="CodeExample">
-		No example provided
-	</p>
 </div><div id="syn_getinstances" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getinstances">syn_getinstances</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">table<span class="CodeTypenameVariant"&gt;</span>&lt;object&gt;</span></span> <a class="Anchor" href="#syn_getinstances">syn_getinstances</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
 		Returns a list of all instances within the game.
@@ -637,22 +572,262 @@ body
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><h1 class="CategoryTitle">Context Library</h1><div id="syn_context_get" class="CodeEntry">
+</div><div id="syn_getrenv" class="CodeEntry">
 	<p class="CodeDefinition">
-		<span class="CodeTypename">int</span> <a class="Anchor" href="#syn_context_get">syn_context_get</a>(<span class="CodeTypename">void</span>)
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getrenv">syn_getrenv</a>(<span class="CodeTypename">void</span>)
 	</p>
 	<p class="CodeDescription">
-		Returns the current thread context as an integer.
+		Returns the global thread environment for the LocalScript context.
 	</p>
 	<p class="CodeExample">
 		No example provided
 	</p>
-</div><div id="syn_context_set" class="CodeEntry">
+</div><div id="syn_getnilinstances" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table<span class="CodeTypenameVariant"&gt;</span>&lt;BaseScript&gt;</span></span> <a class="Anchor" href="#syn_getnilinstances">syn_getnilinstances</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all instances parented to nil within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getrunningscripts" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table<span class="CodeTypenameVariant"&gt;</span>&lt;BaseScript&gt;</span></span> <a class="Anchor" href="#syn_getrunningscripts">syn_getrunningscripts</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all running scripts.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Encryption Library</h1><div id="syn_crypt_encrypt" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_encrypt">syn_crypt_encrypt</a>(<span class="CodeTypename">string</span> Data, <span class="CodeTypename">string</span> Key)
+	</p>
+	<p class="CodeDescription">
+		Encrypts Data with Key and returns it.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_crypt_hash" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_hash">syn_crypt_hash</a>(<span class="CodeTypename">string</span> Data)
+	</p>
+	<p class="CodeDescription">
+		Returns Data's hash.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_crypt_b64_encode" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_b64_encode">syn_crypt_b64_encode</a>(<span class="CodeTypename">string</span> Data)
+	</p>
+	<p class="CodeDescription">
+		Encodes Data in base64.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_crypt_b64_decode" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_b64_decode">syn_crypt_b64_decode</a>(<span class="CodeTypename">string</span> Data)
+	</p>
+	<p class="CodeDescription">
+		Decodes Data from base64.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_crypt_decrypt" class="CodeEntry">
+	<p class="CodeDefinitionProprietary">
+		<span class="CodeTypename">string</span> <a class="Anchor" href="#syn_crypt_decrypt">syn_crypt_decrypt</a>(<span class="CodeTypename">string</span> Data, <span class="CodeTypename">string</span> Key)
+	</p>
+	<p class="CodeDescription">
+		Decrypts Data with Key and returns it.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Keyboard/Mouse Library</h1><div id="syn_mouse1press" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse1press">syn_mouse1press</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Simulates a left mouse button press.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mouse2click" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse2click">syn_mouse2click</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Simulates a full right mouse button press and release.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_keyrelease" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_keyrelease">syn_keyrelease</a>(<span class="CodeTypename">int</span> Keycode)
+	</p>
+	<p class="CodeDescription">
+		Simulates a key release for the specified keycode.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mousemoverel" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mousemoverel">syn_mousemoverel</a>(<span class="CodeTypename">int</span> X, <span class="CodeTypename">int</span> Y)
+	</p>
+	<p class="CodeDescription">
+		Moves the mouse cursor relatively by the specified coordinates.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mousescroll" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mousescroll">syn_mousescroll</a>(<span class="CodeTypename">int</span> Pixels)
+	</p>
+	<p class="CodeDescription">
+		Scrolls the mouse wheel virtually by Pixels pixels.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mouse2release" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse2release">syn_mouse2release</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Simulates a right mouse button release.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_keypress" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_keypress">syn_keypress</a>(<span class="CodeTypename">int</span> Keycode)
+	</p>
+	<p class="CodeDescription">
+		Simulates a keypress for the specified keycode. For more information, <a href="https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes" target="_blank">click here.</a>
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mouse1release" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse1release">syn_mouse1release</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Simulates a left mouse button release.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mouse2press" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse2press">syn_mouse2press</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Simulates a right mouse button press.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_mouse1click" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_mouse1click">syn_mouse1click</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Simulates a full left mouse button press and release.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_isactive" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">bool</span> <a class="Anchor" href="#syn_isactive">syn_isactive</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns true if the user is focused on the game window.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Signal Library</h1><div id="syn_fireclickdetector" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_fireclickdetector">syn_fireclickdetector</a>(<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;ClickDetector&gt;</span></span> ClickDetector, <span class="CodeTypename"><span class="CodeTypenameVariant"&gt;</span>&lt;number/nil&gt;</span></span> Distance)
+	</p>
+	<p class="CodeDescription">
+		Fires the designated ClickDetector with distance provided. If distance isn't provided, it will default to 0.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_firetouchinterest" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_firetouchinterest">syn_firetouchinterest</a>(<span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;Part&gt;</span></span> Part, <span class="CodeTypename">object<span class="CodeTypenameVariant"&gt;</span>&lt;TouchTransmitter&gt;</span></span> Transmitter, <span class="CodeTypename">number</span> Toggle)
+	</p>
+	<p class="CodeDescription">
+		Fires the designated TouchTransmitter with Part. The Toggle argument is used to tell whether the Part is currently being touched.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_getconnections" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">table</span> <a class="Anchor" href="#syn_getconnections">syn_getconnections</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns a list of all connections within the game.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Hooking Library</h1><div id="syn_newcclosure" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_newcclosure">syn_newcclosure</a>(<span class="CodeTypename">function</span> Fn)
+	</p>
+	<p class="CodeDescription">
+		Pushes a CClosure that invokes Fn. Used for metatable hooks.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_hookfunction" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">function</span> <a class="Anchor" href="#syn_hookfunction">syn_hookfunction</a>(<span class="CodeTypename">function</span> Target, <span class="CodeTypename">function</span> Hook)
+	</p>
+	<p class="CodeDescription">
+		Hooks Target and replaces it with Hook. Returns the unhooked function.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><h1 class="CategoryTitle">Context Library</h1><div id="syn_context_set" class="CodeEntry">
 	<p class="CodeDefinition">
 		<span class="CodeTypename">void</span> <a class="Anchor" href="#syn_context_set">syn_context_set</a>(<span class="CodeTypename">int</span> Context)
 	</p>
 	<p class="CodeDescription">
 		Sets the current thread context to Context.
+	</p>
+	<p class="CodeExample">
+		No example provided
+	</p>
+</div><div id="syn_context_get" class="CodeEntry">
+	<p class="CodeDefinition">
+		<span class="CodeTypename">int</span> <a class="Anchor" href="#syn_context_get">syn_context_get</a>(<span class="CodeTypename">void</span>)
+	</p>
+	<p class="CodeDescription">
+		Returns the current thread context as an integer.
 	</p>
 	<p class="CodeExample">
 		No example provided

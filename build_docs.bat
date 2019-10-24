@@ -7,7 +7,7 @@ if errorlevel 0 (
 	rem cd docs
 	rem del /s /q "*.*" >nul
 	rem cd ..
-	lua51 docgenx.lua docapi.lua
+	lua51 docgenx.lua docapi.lua syn_
 ) else (
 	echo build_docs - please install lua51 into your path before using build_docs
 )

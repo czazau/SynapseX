@@ -9,6 +9,9 @@
 	/* general background color */
 	--BackgroundColor: rgb(18, 18, 18);
 
+	/* proprietary background color */
+	--ProprietaryBgColor: rgb(26, 0, 28);
+
 	/* color used by most text */
 	--MainTextColor: rgb(200, 200, 200);
 
@@ -105,6 +108,20 @@
 	font-family: 'Roboto Mono', monospace;
 }
 
+.CodeDefinitionProprietary
+{
+	border-radius: 10px 10px 0 0;
+	padding: 5px 5px 5px 5px;
+	background-color: var(--ProprietaryBgColor);
+	font-family: 'Roboto Mono', monospace;
+}
+
+.ProprietaryNotice
+{
+	position: absolute;
+	right: 20px;
+}
+
 .CodeTypename
 {
 	color: var(--TypenameColor);
@@ -153,6 +170,13 @@ a:hover
 a:active
 {
 	color: var(--PressLinkColor);
+}
+
+h3
+{
+	text-align: center;
+	font-weight: normal;
+	font-family: 'Roboto Mono', monospace;
 }
 
 body

@@ -76,6 +76,62 @@ local function unsupported(feature, flag)
 	return function() error(("api::%s is not supported by %s"):format(feature, flag_to_name(flag))) end
 end
 
+local function idxparse(src_table, statement)
+	local current_kv
+	for key in statement:gmatch("([^%.]+)") do
+		if not current_kv then
+			current_kv = src_table[key]
+		else
+			current_kv = current_kv[key]
+			if current_kv == nil then
+				return -- cannot parse any further
+			end
+		end
+	end
+	return current_kv
+end
+
+local function lookup(src_table, ...)
+	local alias_list = {...}
+	for k, v in pairs(src_table) do
+		local s, tv = pcall(idxparse, src_table, v)
+		if s and tv then
+			return tv
+		end
+	end
+	return -- not existing
+end
+
+local prev_global
+local function globals() -- look up prefered global table
+	if prev_global then
+		return prev_global
+	end
+	-- getgenv is pretty much universal
+	local a, b, c = _G, getfenv(), getgenv()
+	local lookupk = "_VERSION"
+	-- in order of preference
+	if c[lookupk] then
+		-- prefered
+		if not prev_global then
+			prev_global = a
+		end
+		return a
+	elseif b[lookupk] then
+		-- should only be the case in minimal exploits
+		if not prev_global then
+			prev_global = b
+		end
+		return b
+	elseif a[lookupk] then
+		-- should only be the case in lua wrappers
+		if not prev_global then
+			prev_global = c
+		end
+		return c
+	end
+end 
+
 return function()
 	local api = {}
 	local flags = {}
@@ -127,14 +183,11 @@ return function()
 			api.clipboard_get = unsupported("clipboard_get", flags.software)
 			api.clipboard_set = setclipboard
 		else
-			api.clipboard_get = getclipboard or
-								get_clipboard or
-								(function() return clipboard.get end)() or
-								unsupported("clipboard_get", flags.software)
-			api.clipboard_set = setclipboard or
-								set_clipboard or
-								(function() return clipboard.set end)() or
-								unsupported("clipboard_get", flags.software)
+			local globals = globals()
+			api.clipboard_get = lookup(globals, "getclipboard", "get_clipboard", "Clipboard.get")
+								or unsupported("clipboard_get", flags.software)
+			api.clipboard_set = lookup(globals, "setclipboard", "set_clipboard", "Clipboard.set")
+								or unsupported("clipboard_set", flags.software)
 		end
 	end
 
@@ -204,6 +257,14 @@ return function()
 			api.getscripts = getscripts
 			api.getloadedmodules = unsupported("getloadedmodules", flags.software)
 			api.getconnections = unsupported("getconnections", flags.software)
+		else
+			local globals = globals()
+			api.getgenv = lookup(globals, "getgenv", "get_genv") or unsupported("getgenv", flags.software)
+			api.getrenv = lookup(globals, "getrenv", "get_renv") or unsupported("getrenv", flags.software)
+			api.getsenv = lookup(globals, "getsenv", "get_senv") or unsupported("getsenv", flags.software)
+			api.getreg = lookup(globals, "getreg", "getregistry", "get_registry") or unsupported("getreg", flags.software)
+			api.getgc = lookup(globals, "getgc", "get_gc", "gclist") or unsupported("getgc", flags.software)
+			api.getinstances = lookup(globals, "getinstances", "get_instances", "get_instance_list") or unsupported("getinstances", flags.software)
 		end
 	end
 
@@ -223,7 +284,21 @@ return function()
 		elseif flags.software == "cl" then
 			api.context_get = getcontext
 			api.context_set = setcontext
+		else
+			api.context_get = lookup(globals(), )
 		end
+	end
+
+	do -- Create IO library
+		if flags.software == "synx" then
+			api.io_write = syn_io_write
+			api.io_read = syn_io_read
+			api.io_append = syn_io_append
+		elseif flags.software == "synx_old" then
+			api.io_write = writefile
+			api.io_read = readfile
+			api.io_append = appendfile
+		elseif 
 	end
 
 	return api

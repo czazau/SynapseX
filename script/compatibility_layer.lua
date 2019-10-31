@@ -60,7 +60,7 @@ local function flag_to_name(software_flag)
 	return
 	({
 
-		["unk"]			= "Unknown exploit"
+		["unk"]			= "Unknown exploit";
 		["ps"]			= "ProtoSmasher";
 		["synx"]		= "Synapse X";
 		["synx_old"]	= "Synapse X (pre-Holiday update)";
